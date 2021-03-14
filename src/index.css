@@ -81,7 +81,9 @@ footer {
   flex: 1 20rem;
 }
 
-/*Products */
+/*------------------------------*/
+/*Products*/
+
 .products{
   display: flex;
   flex-wrap: wrap;
@@ -139,4 +141,19 @@ footer {
 
 .button.primary{
   background-color: #fcd865;
+}
+
+/*------------------------------*/
+/*Filters*/
+
+.filter{
+  display: flex;
+  padding: 1rem;
+  margin: 1rem;
+  border-bottom: .1rem #c0c0c0 solid;
+  justify-content: space-between;
+}
+
+.filter div{
+  flex: 1;
 }
