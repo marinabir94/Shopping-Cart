@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 html{
-  font-size: 62.5%;
+  font-size: 60%;
   box-sizing: border-box; /*Having padding and margin inside divs */
 }
 
@@ -156,4 +156,57 @@ footer {
 
 .filter div{
   flex: 1;
+}
+
+/*------------------------------*/
+/*Cart*/
+
+.cart{
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+}
+
+.cart-header{
+  border-bottom: .1rem #c0c0c0 solid;
+}
+
+.cart-items{
+  padding:0;
+  width: 100;
+  list-style-type: none;
+}
+
+.cart-items img{
+  width: 5rem;
+}
+
+.cart-items li{
+  display: flex;
+}
+
+.cart-items li div{
+  padding: .5rem;
+}
+
+.cart-items li div:last-child{
+  flex: 1;
+}
+
+.right{
+  text-align: right;
+}
+
+.total{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100;
+}
+
+.total > div,
+.total > button{
+  flex: 1;
+  font-size: 2rem;
+  font-weight: 700;
 }
