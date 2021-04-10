@@ -9,7 +9,9 @@ class App extends React.Component {
     super();
     this.state = {
       products: data.products,
-      cartItems: [],
+      cartItems: localStorage.getItem("cartItems")
+        ? JSON.parse(localStorage.getItem("cartItems"))
+        : [],
       size: "",
       sort: "",
     };
@@ -73,6 +75,8 @@ class App extends React.Component {
     this.setState({
       cartItems: cartItems,
     });
+    //making the cartItems persistent after refreshing the page
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   };
 
   removeFromCart = (product) => {
@@ -80,7 +84,16 @@ class App extends React.Component {
     this.setState({
       cartItems: cartItems.filter((item) => item._id !== product._id),
     });
+    //making the cartItems persistent after refreshing the page
+    localStorage.setItem(
+      "cartItems",
+      JSON.stringify(cartItems.filter((item) => item._id !== product._id))
+    );
   };
+
+  createOrder(order) {
+    alert("Need to save order for " + order.name);
+  }
 
   render() {
     return (
@@ -104,7 +117,11 @@ class App extends React.Component {
               ></Products>
             </div>
             <div className="sidebar">
-              <Cart cartItems={this.state.cartItems} removeFromCart={this.removeFromCart}></Cart>
+              <Cart
+                cartItems={this.state.cartItems}
+                removeFromCart={this.removeFromCart}
+                createOrder={this.createOrder}
+              ></Cart>
             </div>
           </div>
         </main>
