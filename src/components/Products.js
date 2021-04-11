@@ -106,6 +106,10 @@ class Products extends Component {
 }
 
 //Redux
-export default connect((state) => ({ products: state.products.items }), {
+export default connect((state) => ({ 
+  products: state.products.filteredItems 
+}), 
+{
   fetchProducts,
-})(Products);
+}
+)(Products);
