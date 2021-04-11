@@ -1,22 +1,22 @@
-//Backend implementation
-//Express --> web server
-//Body-parser --> Parse data inside the POST request
-//Mongoose --> Connects us to the MongoDB data
-//ShortID --> creates user-friendly ID to save as a product ID
 const express = require("express");
-//const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const shortid = require("shortid");
 
 const app = express();
-//app.use(express.urlencoded());
-app.use(express.json());
+app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost/react-shopping-cart-db", {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true,
-});
+app.use("/", express.static(__dirname + "/build"));
+app.get("/", (req, res) => res.sendFile(__dirname + "/build/index.html"));
+
+mongoose.connect(
+  process.env.MONGODB_URL || "mongodb://localhost/react-shopping-cart-db",
+  {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+  }
+);
 
 const Product = mongoose.model(
   "products",
@@ -31,23 +31,22 @@ const Product = mongoose.model(
 );
 
 app.get("/api/products", async (req, res) => {
-  //Find all producust, no filter
   const products = await Product.find({});
+      // Website you wish to allow to connect
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.send(products);
 });
 
 app.post("/api/products", async (req, res) => {
-  //Stpre the new product into the database
   const newProduct = new Product(req.body);
   const savedProduct = await newProduct.save();
   res.send(savedProduct);
 });
 
 app.delete("/api/products/:id", async (req, res) => {
-  //Delete a product from the database
   const deletedProduct = await Product.findByIdAndDelete(req.params.id);
   res.send(deletedProduct);
 });
 
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log("server at http://localhost:5000"));
+app.listen(port, () => console.log("serve at http://localhost:5000"));
