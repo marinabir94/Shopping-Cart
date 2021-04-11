@@ -7,6 +7,7 @@ import Modal from "react-modal";
 //Redux
 import { connect } from "react-redux";
 import { fetchProducts } from "../actions/productActions";
+import { addToCart } from "../actions/cartActions";
 
 class Products extends Component {
   constructor(props) {
@@ -111,5 +112,6 @@ export default connect((state) => ({
 }), 
 {
   fetchProducts,
+  addToCart
 }
 )(Products);

@@ -21,9 +21,9 @@ export const fetchProducts = () => async (dispatch) => {
 
 //Filter products by size
 export const filterProducts = (products, size) => (dispatch) => {
-  let filteredProducts = products;
+  let filteredProducts = products.slice();
   if (size !== "") {
-    filteredProducts = products.filter(
+    filteredProducts = products.slice().filter(
       (product) => product.availableSizes.indexOf(size) >= 0
     );
   }
