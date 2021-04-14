@@ -8,8 +8,10 @@ import {
 
 //Fetch all products from the database
 export const fetchProducts = () => async (dispatch) => {
-  fetch("http://localhost:5000/api/products")
-    .then((data) => data.json())
+  fetch("http://localhost:5000/api/products", {
+    method: "GET"
+    })
+    .then((result) => result.json())
     .then((data) => {
       console.log(data);
       dispatch({
