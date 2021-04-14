@@ -3,8 +3,8 @@
   "proxy": "https://localhost:5000",
   "version": "0.1.0",
   "private": true,
-  "engines":{
-	  "node": "12.x"
+  "engines": {
+    "node": "12.x"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -21,6 +21,7 @@
     "react-redux": "^7.2.3",
     "react-reveal": "^1.2.2",
     "react-scripts": "4.0.3",
+    "redux-thunk": "^2.3.0",
     "shortid": "^2.2.16",
     "web-vitals": "^1.0.1"
   },
