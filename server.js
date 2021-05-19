@@ -94,5 +94,5 @@ app.post("/api/orders", async (req, res) => {
 
 
 //****************
-const port = process.env.PORT || 5000;
-app.listen(port, () => console.log("Server at http://localhost:5000"));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log("Server at http://localhost:" + PORT + ""));

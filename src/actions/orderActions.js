@@ -1,7 +1,9 @@
 import { CLEAR_CART, CLEAR_ORDER, CREATE_ORDER } from "../types";
 
+const PORT = process.env.PORT || 5000;
+
 export const createOrder = (order) => async (dispatch) =>{
-    fetch("http://localhost:5000/api/orders", {
+    fetch("http://localhost:" + PORT + "/api/orders", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

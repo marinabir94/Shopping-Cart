@@ -6,9 +6,11 @@ import {
   SORT_PRODUCTS_BY_PRICE,
 } from "../types";
 
+const PORT = process.env.PORT || 5000;
+
 //Fetch all products from the database
 export const fetchProducts = () => async (dispatch) => {
-  fetch("http://localhost:5000/api/products", {
+  fetch("http://localhost:" + PORT + "/api/products", {
     method: "GET"
     })
     .then((result) => result.json())
