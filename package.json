@@ -23,7 +23,8 @@
     "react-scripts": "4.0.3",
     "redux-thunk": "^2.3.0",
     "shortid": "^2.2.16",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+	"babel-core": "7.12.3"
   },
   "scripts": {
     "server": "nodemon server.js",
