@@ -45,7 +45,6 @@ app.post("/api/products", async (req, res) => {
   res.send(savedProduct);
 });
 
-
 //Delete a product from the database
 app.delete("/api/products/:id", async (req, res) => {
   const deletedProduct = await Product.findByIdAndDelete(req.params.id);
