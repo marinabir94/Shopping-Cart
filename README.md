@@ -1,5 +1,7 @@
 # React and Redux Shopping Cart
 
+Demo: https://shoppingcart-marinabir.herokuapp.com/
+
 1. HTML5 and CSS3: Semantic Elements, CSS Grid, Flexbox
 2. React: Components, Props, Events, Hooks, Router, Axios
 3. Redux: Store, Reducers, Actions
