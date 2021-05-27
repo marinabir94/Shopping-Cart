@@ -1,4 +1,4 @@
-//Redux
+//Redux-
 
 import {
   FETCH_PRODUCTS,
